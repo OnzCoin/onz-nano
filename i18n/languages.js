@@ -15,7 +15,7 @@ const languages = {
     flag: require('./flags/ja.png'),
   },
   zh: {
-    name: 'Chinese',
+    name: 'Chinese (tbc)',
     common: require('./locales/zh/common.json'),
     flag: require('./flags/zh.png'),
   },
@@ -25,9 +25,14 @@ const languages = {
     flag: require('./flags/pt.png'),
   },
   es: {
-    name: 'Spanish',
+    name: 'Spanish (tbc)',
     common: require('./locales/es/common.json'),
     flag: require('./flags/es.png'),
+  },
+  ko: {
+    name: 'Korean (tbc)',
+    common: require('./locales/ko/common.json'),
+    flag: require('./flags/ko.png'),
   },
 };
 export default languages;
