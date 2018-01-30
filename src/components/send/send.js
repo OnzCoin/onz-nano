@@ -22,7 +22,7 @@ class Send extends React.Component {
     };
     this.fee = 0.1;
     this.inputValidationRegexps = {
-      recipient: /^\d{1,21}[Z|z]$/,
+      recipient: /^ONZ[a-zA-Z0-9]{33}$/,
       amount: /^\d+(\.\d{1,8})?$/,
     };
   }
