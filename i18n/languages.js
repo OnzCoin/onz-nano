@@ -25,7 +25,7 @@ const languages = {
     flag: require('./flags/pt.png'),
   },
   es: {
-    name: 'Spanish (tbc)',
+    name: 'Spanish',
     common: require('./locales/es/common.json'),
     flag: require('./flags/es.png'),
   },
