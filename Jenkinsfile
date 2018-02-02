@@ -32,9 +32,9 @@ def fail(reason) {
 
 /* comment out the next line to allow concurrent builds on the same branch */
 properties([disableConcurrentBuilds(), pipelineTriggers([])])
-node('lisk-nano') {
+node('onz-nano') {
   try {
-    stage ('Checkout and Start Lisk Core') {
+    stage ('Checkout and Start Onz Core') {
       try {
         deleteDir()
         checkout scm
@@ -46,7 +46,7 @@ node('lisk-nano') {
       try {
         sh '''
         N=${EXECUTOR_NUMBER:-0}; N=$((N+1))
-        cd ~/lisk-Linux-x86_64
+        cd ~/onz-Linux-x86_64
         # work around core bug: config.json gets overwritten; use backup
         cp .config.json config_$N.json
         # change core port, listen only on 127.0.0.1
@@ -55,20 +55,20 @@ node('lisk-nano') {
         # disable redis
         sed -i -r -e "s/^(\\s*\\"cacheEnabled\\":) true/\\1 false/" config_$N.json
         # change postgres databse
-        sed -i -r -e "s/^(\\s*\\"database\\": \\"lisk_test)\\",/\\1_$N\\",/" config_$N.json
-        cp etc/pm2-lisk.json etc/pm2-lisk_$N.json
-        sed -i -r -e "s/config.json/config_$N.json/" etc/pm2-lisk_$N.json
-        sed -i -r -e "s/(lisk.app)/\\1_$N/" etc/pm2-lisk_$N.json
+        sed -i -r -e "s/^(\\s*\\"database\\": \\"onz_test)\\",/\\1_$N\\",/" config_$N.json
+        cp etc/pm2-onz.json etc/pm2-onz_$N.json
+        sed -i -r -e "s/config.json/config_$N.json/" etc/pm2-onz_$N.json
+        sed -i -r -e "s/(onz.app)/\\1_$N/" etc/pm2-onz_$N.json
         # logs
-        sed -i -r -e "s/lisk.log/lisk_${JOB_BASE_NAME}_${BUILD_ID}.log/" config_$N.json
-        sed -i -r -e "s/lisk.app_$N/lisk.app_$N_${JOB_BASE_NAME}_${BUILD_ID}/" etc/pm2-lisk_$N.json
+        sed -i -r -e "s/onz.log/onz_${JOB_BASE_NAME}_${BUILD_ID}.log/" config_$N.json
+        sed -i -r -e "s/onz.app_$N/onz.app_$N_${JOB_BASE_NAME}_${BUILD_ID}/" etc/pm2-onz_$N.json
         #
-        JENKINS_NODE_COOKIE=dontKillMe bash lisk.sh start_db -p etc/pm2-lisk_$N.json
-        bash lisk.sh rebuild -p etc/pm2-lisk_$N.json -f blockchain_explorer.db.gz
+        JENKINS_NODE_COOKIE=dontKillMe bash onz.sh start_db -p etc/pm2-onz_$N.json
+        bash onz.sh rebuild -p etc/pm2-onz_$N.json -f blockchain_explorer.db.gz
         '''
       } catch (err) {
         echo "Error: ${err}"
-        fail('Stopping build: Lisk Core failed to start')
+        fail('Stopping build: Onz Core failed to start')
       }
     }
 
@@ -136,7 +136,7 @@ node('lisk-nano') {
     stage ('Run E2E Tests') {
       try {
         ansiColor('xterm') {
-          withCredentials([string(credentialsId: 'lisk-nano-testnet-passphrase', variable: 'TESTNET_PASSPHRASE')]) {
+          withCredentials([string(credentialsId: 'onz-nano-testnet-passphrase', variable: 'TESTNET_PASSPHRASE')]) {
             sh '''
             N=${EXECUTOR_NUMBER:-0}; N=$((N+1))
 
@@ -147,11 +147,11 @@ node('lisk-nano') {
             # Run end-to-end tests
 
             if [ -z $CHANGE_BRANCH ]; then
-            npm run --silent e2e-test -- --params.baseURL file://$WORKSPACE/app/build/index.html --params.liskCoreURL https://testnet.lisk.io --cucumberOpts.tags @testnet --params.useTestnetPassphrase true
+            npm run --silent e2e-test -- --params.baseURL file://$WORKSPACE/app/build/index.html --params.onzCoreURL https://testnet.onzcoin.com --cucumberOpts.tags @testnet --params.useTestnetPassphrase true
             else
               echo "Skipping @testnet end-to-end tests because we're not on 'development' branch"
             fi
-            npm run --silent e2e-test -- --params.baseURL file://$WORKSPACE/app/build/index.html --params.liskCoreURL http://127.0.0.1:400$N
+            npm run --silent e2e-test -- --params.baseURL file://$WORKSPACE/app/build/index.html --params.onzCoreURL http://127.0.0.1:400$N
             if [ -z $CHANGE_BRANCH ]; then
               npm run --silent e2e-test -- --params.baseURL file://$WORKSPACE/app/build/index.html --cucumberOpts.tags @testnet --params.useTestnetPassphrase true --params.network testnet
             else
@@ -171,7 +171,7 @@ node('lisk-nano') {
     sh '''
     N=${EXECUTOR_NUMBER:-0}; N=$((N+1))
     curl --verbose http://127.0.0.1:400$N/api/blocks/getNethash || true
-    ( cd ~/lisk-Linux-x86_64 && bash lisk.sh stop_node -p etc/pm2-lisk_$N.json ) || true
+    ( cd ~/onz-Linux-x86_64 && bash onz.sh stop_node -p etc/pm2-onz_$N.json ) || true
     pgrep --list-full -f "Xvfb :1$N" || true
     pkill --echo -f "Xvfb :1$N" -9 || echo "pkill returned code $?"
 
