@@ -1,6 +1,6 @@
 const votingConst = {
-  maxCountOfVotesInOneTurn: 33,
-  maxCountOfVotes: 101,
+  maxCountOfVotesInOneTurn: 11,
+  maxCountOfVotes: 11,
 };
 
 export default votingConst;
