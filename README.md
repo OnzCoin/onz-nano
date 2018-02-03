@@ -135,12 +135,8 @@ http://localhost:6006/
 
 ## Authors
 
-- Ricardo Ferro <ricardo.ferro@gmail.com>
-- Oliver Beddows <oliver@lightcurve.io>
-- Vít Stanislav <vit@lightcurve.io>
-- Tobias Schwarz <tobias@lightcurve.io>
-- Ali Haghighatkhah <ali@lightcurve.io>
-- Yashar Ayari <darkyashi@gmail.com>
+- Kan Wong <kan@onzcoin.com>
+- Mars Yau <mars@onzcoin.com>
 
 ## License
 
