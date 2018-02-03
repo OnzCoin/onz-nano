@@ -21,10 +21,10 @@ const Account = ({
 
   return (
     <section className={`${grid.row} ${styles.wrapper}`}>
-      <article className={`${grid['col-sm-4']} ${grid['col-xs-12']}`}>
+      <article className={`${grid['col-sm-5']} ${grid['col-xs-12']}`}>
         <Address t={t} {...account}></Address>
       </article>
-      <article className={`${grid['col-sm-4']} ${grid['col-xs-12']}`}>
+      <article className={`${grid['col-sm-3']} ${grid['col-xs-12']}`}>
         <div className="box">
           <div className={`${grid.row}`}>
             <div className={`${grid['col-sm-12']} ${grid['col-xs-4']}`}>
