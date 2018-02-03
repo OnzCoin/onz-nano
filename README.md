@@ -137,10 +137,12 @@ http://localhost:6006/
 
 - Kan Wong <kan@onzcoin.com>
 - Mars Yau <mars@onzcoin.com>
+- Scott Lindh
+- Karek
 
 ## License
 
-Copyright © 2016-2017 OnzCoin
+Copyright © 2017-2018 ONZ COIN
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -152,7 +154,7 @@ You should have received a copy of the [GNU General Public License](https://gith
 
 This program also incorporates work previously released with onz-nano `0.1.2` (and earlier) versions under the [MIT License](https://opensource.org/licenses/MIT). To comply with the requirements of that license, the following permission notice, applicable to those parts of the code only, is included below:
 
-Copyright © 2016-2017 OnzCoin
+Copyright © 2017-2018 ONZ COIN
 Copyright © 2015 Crypti
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
