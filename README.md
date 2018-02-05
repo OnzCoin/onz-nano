@@ -56,6 +56,23 @@ Then, in order to launch electron, you can run
 npm run start
 ```
 
+### Trouble Shoot
+
+[LevelDown fails installation with NPM on windows 10.]
+```
+FIX:    choco install microsoft-build-tools / npm install windows-build-tools
+FIX 1:  Install python, ie: choco install python, choco install python3.6
+FIX 2:  Install windows sdk version 8.1,  choco install windows-sdk-8.1 
+FIX 3:  Set Enviroment varible for python.
+```
+
+[Unable to find Electron App Error https://i.imgur.com/9lqLVhb.png]
+```
+FIX:    npm run build && npm start
+FIX 2:  Check contents of package.json make sure "main" key exists. main.js is Electron Config file.
+```
+
+
 ### Windows
 
 Build package for Windows (on Windows in [Git BASH](https://git-for-windows.github.io/)).
