@@ -149,30 +149,35 @@ and go to
 http://localhost:6006/
 
 
-
 ## Authors
 
 - Kan Wong <kan@onzcoin.com>
 - Mars Yau <mars@onzcoin.com>
-- Scott Lindh
-- Karek
+-Ricardo Ferro <ricardo.ferro@gmail.com>
+-Oliver Beddows <oliver@lightcurve.io>
+-Vít Stanislav <vit@lightcurve.io>
+-Tobias Schwarz <tobias@lightcurve.io>
+-Ali Haghighatkhah <ali@lightcurve.io>
+-Yashar Ayari <darkyashi@gmail.com>
 
 ## License
 
-Copyright © 2017-2018 ONZ COIN
+Copyright © 2017-2018 ONZ COIN<br>
+Copyright © 2016-2017 Lisk Foundation<br>
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the [GNU General Public License](https://github.com/OnzCoin/onz-nano/tree/master/LICENSE) along with this program.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the [GNU General Public License](https://github.com/OnzCoin/onz/tree/master/LICENSE) along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 ***
 
-This program also incorporates work previously released with onz-nano `0.1.2` (and earlier) versions under the [MIT License](https://opensource.org/licenses/MIT). To comply with the requirements of that license, the following permission notice, applicable to those parts of the code only, is included below:
+This program also incorporates work previously released with lisk `0.7.0` (and earlier) versions under the [MIT License](https://opensource.org/licenses/MIT). To comply with the requirements of that license, the following permission notice, applicable to those parts of the code only, is included below:
 
-Copyright © 2017-2018 ONZ COIN
-Copyright © 2015 Crypti
+Copyright © 2016-2017 Lisk Foundation<br>
+Copyright © 2015 Crypti<br>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
