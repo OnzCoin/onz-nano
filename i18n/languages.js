@@ -15,7 +15,7 @@ const languages = {
     flag: require('./flags/ja.png'),
   },
   zh: {
-    name: 'Chinese (tbc)',
+    name: 'Chinese',
     common: require('./locales/zh/common.json'),
     flag: require('./flags/zh.png'),
   },
